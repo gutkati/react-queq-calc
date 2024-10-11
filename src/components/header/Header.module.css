@@ -1,0 +1,84 @@
+.style__components {
+    width: 60%;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px #c6c6c6;
+}
+
+.header {
+    composes: style__components;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo {
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../images/logo2.png");
+    background-size: cover;
+}
+
+.title {
+    text-align: center;
+    flex-grow: 2;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.title h1 {
+    margin: 0;
+    padding: 0;
+    font-family: Consolas;
+}
+
+@media screen and (max-width: 1080px) {
+    .style__components {
+        width: 70%;
+    }
+
+    .title {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .style__components {
+        width: 80%;
+    }
+
+    .title {
+        font-size: 10px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .style__components {
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .title {
+        font-size: 10px;
+        margin: 0;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+}

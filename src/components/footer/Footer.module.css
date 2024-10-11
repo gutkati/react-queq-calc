@@ -1,0 +1,25 @@
+.footer {
+    composes: style__components from '../header/Header.module.css';
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.box__text {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text {
+    margin: 0;
+    color: #828282;
+    font-size: 14px;
+}
+
+.text:first-child {
+    margin-right: 5px;
+}
+

@@ -1,0 +1,39 @@
+.box__inp {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+
+}
+
+.box__inp label {
+cursor: pointer;
+
+}
+
+.box__inp label em {
+    color: #007F7F;
+    font-size: 24px;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.box__inp input {
+    width: 80px;
+    appearance: none;
+    border: 1px solid #939393;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 18px;
+    font-family: serif;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 560px) {
+    .box__inp {
+        width: 250px;
+    }
+}

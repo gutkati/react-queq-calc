@@ -1,0 +1,33 @@
+.main {
+    composes: style__components from '../header/Header.module.css';
+    min-height: 400px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.box__title {
+}
+
+.title {
+    margin: 0;
+    color: #007F7F;
+    font-family: serif;
+}
+
+.box__input {
+    color: #828282;
+}
+
+@media screen and (max-width: 560px) {
+
+    .main {
+        padding-bottom: 60px;
+    }
+
+    .box__input {
+        width: 250px;
+    }
+}
