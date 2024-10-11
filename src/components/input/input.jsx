@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Input.module.css'
 
-const Input = ({info, text, type, value, onChange, onBlur}) => {
+const Input = ({info, text, type, value, onChange}) => {
     return (
         <div className={styles.box__inp}>
             <p>Коэффициент</p>
@@ -13,7 +13,7 @@ const Input = ({info, text, type, value, onChange, onBlur}) => {
                 id={info}
                 value={value}
                 onChange={onChange}
-                onBlur={onBlur}
+                // onBlur={onBlur}
             />
             </div>
 
