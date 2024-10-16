@@ -15,15 +15,26 @@ const Main = () => {
     const [b, setB] = useState('')
     const [c, setC] = useState('')
 
+    const [errorMessage, setErrorMessage] = useState('')
+
     const onInputAChange = (e) => setInputA(e.target.value)
     const onInputBChange = (e) => setInputB(e.target.value)
     const onInputCChange = (e) => setInputC(e.target.value)
 
     function showSolution() {
-        setOpenSolution(true)
-        setA(inputA)
-        setB(inputB)
-        setC(inputC)
+        if (+inputA === 0) {
+            setErrorMessage(<p className={styles.error}>Коэффициент "а" не может быть равным 0!
+                Уравнение не является квадратным!</p>)
+
+        } else if (inputA !== '' && inputB!== '' && inputC !== '') {
+            setOpenSolution(true)
+            setA(inputA)
+            setB(inputB)
+            setC(inputC)
+            setErrorMessage('')
+        } else {
+            setErrorMessage(<p className={styles.error}>Заполните все поля!</p>)
+        }
     }
 
     return (
@@ -53,6 +64,7 @@ const Main = () => {
                     value={inputC}
                     onChange={onInputCChange}
                 />
+                {errorMessage}
                 <Button
                     text='Решение'
                     name='дискриминант'

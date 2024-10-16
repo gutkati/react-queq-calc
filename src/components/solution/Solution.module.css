@@ -31,3 +31,16 @@
     color: #2d2d2d;
     height: 100%;
 }
+
+.coefficient {
+    font-size: 18px;
+    letter-spacing: inherit;
+}
+
+.margin__top {
+    margin-top: 1px;
+}
+
+.font__size {
+    font-size: 18px;
+}
