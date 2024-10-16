@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../solution/Solution.module.css";
+import styles from "../solutionForm/SolutionForm.module.css";
 
 const Coefficient1 = ({a, b, disc, x1, numRes}) => {
     return (

@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import styles from './Main.module.css'
 import Input from "../input/input";
 import Button from "../button/button";
-import Solution from "../solution/solution";
+import SolutionDisc from "../solutionDisc/solutionDisc";
+import SolutionVi from "../solutionVi/solutionVi";
 
 const Main = () => {
 
-    const [openSolution, setOpenSolution] = useState(false)
+    const [openSolutionDisc, setOpenSolutionDisc] = useState(false)
+    const [openSolutionVi, setOpenSolutionVi] = useState(false)
     const [inputA, setInputA] = useState('')
     const [inputB, setInputB] = useState('')
     const [inputC, setInputC] = useState('')
@@ -15,25 +17,48 @@ const Main = () => {
     const [b, setB] = useState('')
     const [c, setC] = useState('')
 
+    let aNum = parseFloat(inputA)
+    let bNum = parseFloat(inputB)
+    let cNum = parseFloat(inputC)
+
     const [errorMessage, setErrorMessage] = useState('')
 
     const onInputAChange = (e) => setInputA(e.target.value)
     const onInputBChange = (e) => setInputB(e.target.value)
     const onInputCChange = (e) => setInputC(e.target.value)
 
-    function showSolution() {
+    function showSolutionDisc() {
+        setOpenSolutionVi(false)
         if (+inputA === 0) {
             setErrorMessage(<p className={styles.error}>Коэффициент "а" не может быть равным 0!
                 Уравнение не является квадратным!</p>)
 
-        } else if (inputA !== '' && inputB!== '' && inputC !== '') {
-            setOpenSolution(true)
+        } else if (isNaN(aNum) || isNaN(bNum) || isNaN(cNum)) {
+            setErrorMessage(<p className={styles.error}>Заполните все поля!</p>)
+        } else {
+            setOpenSolutionDisc(true)
             setA(inputA)
             setB(inputB)
             setC(inputC)
             setErrorMessage('')
-        } else {
+        }
+    }
+
+    function showSolutionVi() {
+
+        if (+inputA === 0) {
+            setErrorMessage(<p className={styles.error}>Коэффициент "а" не может быть равным 0!
+                Уравнение не является квадратным!</p>)
+
+        } else if (isNaN(aNum) || isNaN(bNum) || isNaN(cNum)) {
             setErrorMessage(<p className={styles.error}>Заполните все поля!</p>)
+        } else {
+            setOpenSolutionDisc(false)
+            setOpenSolutionVi(true)
+            setA(inputA)
+            setB(inputB)
+            setC(inputC)
+            setErrorMessage('')
         }
     }
 
@@ -68,20 +93,28 @@ const Main = () => {
                 <Button
                     text='Решение'
                     name='дискриминант'
-                    isOpen={showSolution}
+                    isOpen={showSolutionDisc}
                 />
                 <Button
                     text='Решение'
                     name='теорема Виета'
-                    isOpen={showSolution}
+                    isOpen={showSolutionVi}
                 />
             </div>
 
-            <Solution
-                openSolution={openSolution}
+            <SolutionDisc
+                titlle={''}
                 a={a}
                 b={b}
                 c={c}
+                openSolution={openSolutionDisc}
+            />
+
+            <SolutionVi
+                a={a}
+                b={b}
+                c={c}
+                openSolution={openSolutionVi}
             />
 
         </div>
