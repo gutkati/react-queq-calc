@@ -1,31 +1,19 @@
 import React from 'react';
 import SolutionForm from "../solutionForm/solutionForm";
 import styles from "../solutionForm/SolutionForm.module.css";
-import Coefficient1 from "../coefficient1/coefficient1";
-import Coefficient2 from "../coefficient2/coefficient2";
-
 const SolutionVi = ({title, a, b, c, openSolution}) => {
-
-    console.log('a', a)
-    console.log('b', b)
-    console.log('c', c)
 
     // значение дискриминанта
     let disc = Math.pow(+b, 2) - (4 * +a * +c)
-    console.log('disc', disc)
-
 
     let x1 = roundNumber((-b + Math.sqrt(disc)) / (2 * a))
     let x2 = roundNumber((-b - Math.sqrt(disc)) / (2 * a))
 
-    console.log('x1', x1)
-    console.log('x2', x2)
-
     // Проверка по теореме Виета (сумма и произведение)
     // const sum = x1 + x2;
     // const product = x1 * x2;
-    const vietaSum = -b / a;
-    const vietaProduct = c / a;
+    const vietaSum = roundNumber(-b / a)
+    const vietaProduct = roundNumber(c / a)
 
     // преобразует отрицательное число в скобки
     const numRes = (num) => num < 0 ? `(${num})` : num
@@ -39,7 +27,6 @@ const SolutionVi = ({title, a, b, c, openSolution}) => {
             return num
         }
     }
-
 
     return (
         <SolutionForm title={title} a={a} b={b} c={c} openSolution={openSolution}>
@@ -94,8 +81,8 @@ const SolutionVi = ({title, a, b, c, openSolution}) => {
                             <mo>=</mo>
                             <mo>-</mo>
                             <mfrac>
-                                <mi>b</mi>
-                                <mn>a</mn>
+                                <mi class={styles.font__size}>b</mi>
+                                <mn class={styles.font__size}>a</mn>
                             </mfrac>
                             <mo>=</mo>
                             <mn>{numRes(x1)}</mn>
@@ -120,8 +107,8 @@ const SolutionVi = ({title, a, b, c, openSolution}) => {
                             <mo>=</mo>
 
                             <mfrac>
-                                <mi>с</mi>
-                                <mn>a</mn>
+                                <mi class={styles.font__size}>с</mi>
+                                <mn class={styles.font__size}>a</mn>
                             </mfrac>
                             <mo>=</mo>
                             <mn>{numRes(x1)}</mn>
@@ -156,7 +143,7 @@ const SolutionVi = ({title, a, b, c, openSolution}) => {
 
                 </>
                 || disc < 0 &&
-                <p>Дискриминант D &#60; 0, уравнение не имеет корней.</p>
+                <p>Дискриминант D &#60; 0, теорема Виета не применима.</p>
                 }
             </div>
         </SolutionForm>

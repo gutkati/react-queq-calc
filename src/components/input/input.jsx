@@ -7,16 +7,15 @@ const Input = ({info, text, type, value, onChange, onBlur}) => {
             <p>Коэффициент</p>
             <div>
                 <label htmlFor={info}><em>{text}</em> = </label>
-            <input
-                type={type}
-                name={info}
-                id={info}
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-            />
+                <input
+                    type={type}
+                    name={info}
+                    id={info}
+                    value={value}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                />
             </div>
-
 
         </div>
     );

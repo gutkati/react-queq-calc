@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './SolutionForm.module.css'
 
 const SolutionForm = ({title, a, b, c, openSolution, children}) => {

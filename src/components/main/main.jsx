@@ -9,9 +9,9 @@ const Main = () => {
 
     const [openSolutionDisc, setOpenSolutionDisc] = useState(false)
     const [openSolutionVi, setOpenSolutionVi] = useState(false)
-    const [inputA, setInputA] = useState('')
-    const [inputB, setInputB] = useState('')
-    const [inputC, setInputC] = useState('')
+    const [inputA, setInputA] = useState(getSaveData('inputA') || '')
+    const [inputB, setInputB] = useState(getSaveData('inputB') || '')
+    const [inputC, setInputC] = useState(getSaveData('inputC') || '')
 
     const [a, setA] = useState('')
     const [b, setB] = useState('')
@@ -23,7 +23,9 @@ const Main = () => {
 
     const [errorMessage, setErrorMessage] = useState('')
 
-    const onInputAChange = (e) => setInputA(e.target.value)
+    const onInputAChange = (e) => {
+        setInputA(e.target.value)
+    }
 
     function handleBlurInputA() {
         if (inputA == 0) {
@@ -32,11 +34,18 @@ const Main = () => {
         } else {
             setInputA(inputA)
             setErrorMessage('')
+            saveDataStorage('inputA', inputA)
         }
     }
 
-    const onInputBChange = (e) => setInputB(e.target.value)
-    const onInputCChange = (e) => setInputC(e.target.value)
+    const onInputBChange = (e) => {
+        setInputB(e.target.value)
+        saveDataStorage('inputB', e.target.value)
+    }
+    const onInputCChange = (e) => {
+        setInputC(e.target.value)
+        saveDataStorage('inputC', e.target.value)
+    }
 
     function showSolutionDisc() {
         setOpenSolutionVi(false)
@@ -71,6 +80,15 @@ const Main = () => {
             setC(inputC)
             setErrorMessage('')
         }
+    }
+
+    function getSaveData(key) {
+        let data = JSON.parse(localStorage.getItem(key))
+        return data
+    }
+
+    function saveDataStorage(key, data) {
+        localStorage.setItem(key, JSON.stringify(data))
     }
 
     return (
