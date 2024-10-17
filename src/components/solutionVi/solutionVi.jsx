@@ -10,8 +10,6 @@ const SolutionVi = ({title, a, b, c, openSolution}) => {
     let x2 = roundNumber((-b - Math.sqrt(disc)) / (2 * a))
 
     // Проверка по теореме Виета (сумма и произведение)
-    // const sum = x1 + x2;
-    // const product = x1 * x2;
     const vietaSum = roundNumber(-b / a)
     const vietaProduct = roundNumber(c / a)
 
@@ -65,7 +63,7 @@ const SolutionVi = ({title, a, b, c, openSolution}) => {
 
                 </p>
 
-                {disc > 0 &&
+                {disc >= 0 &&
                 <>
                     <p>Сумма корней:&nbsp;
                         <math className={styles.coefficient}>
@@ -82,7 +80,7 @@ const SolutionVi = ({title, a, b, c, openSolution}) => {
                             <mo>-</mo>
                             <mfrac>
                                 <mi class={styles.font__size}>b</mi>
-                                <mn class={styles.font__size}>a</mn>
+                                <mi class={styles.font__size}>a</mi>
                             </mfrac>
                             <mo>=</mo>
                             <mn>{numRes(x1)}</mn>
@@ -108,7 +106,7 @@ const SolutionVi = ({title, a, b, c, openSolution}) => {
 
                             <mfrac>
                                 <mi class={styles.font__size}>с</mi>
-                                <mn class={styles.font__size}>a</mn>
+                                <mi class={styles.font__size}>a</mi>
                             </mfrac>
                             <mo>=</mo>
                             <mn>{numRes(x1)}</mn>
