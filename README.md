@@ -19,6 +19,7 @@
 - React
 - JSX
 - CSS.module
+- MathML
 
 #### Запуск приложения 
 **`npm start`**
