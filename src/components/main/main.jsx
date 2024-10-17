@@ -24,6 +24,17 @@ const Main = () => {
     const [errorMessage, setErrorMessage] = useState('')
 
     const onInputAChange = (e) => setInputA(e.target.value)
+
+    function handleBlurInputA() {
+        if (inputA == 0) {
+            setErrorMessage(<p className={styles.error}>Коэффициент "а" не может быть равным 0!
+                Уравнение не является квадратным!</p>)
+        } else {
+            setInputA(inputA)
+            setErrorMessage('')
+        }
+    }
+
     const onInputBChange = (e) => setInputB(e.target.value)
     const onInputCChange = (e) => setInputC(e.target.value)
 
@@ -74,6 +85,7 @@ const Main = () => {
                     text='a'
                     value={inputA}
                     onChange={onInputAChange}
+                    onBlur={handleBlurInputA}
                 />
                 <Input
                     type='number'
