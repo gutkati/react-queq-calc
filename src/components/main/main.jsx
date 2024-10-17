@@ -103,7 +103,7 @@ const Main = () => {
             </div>
 
             <SolutionDisc
-                titlle={''}
+                title='Решение через Дискриминант'
                 a={a}
                 b={b}
                 c={c}
@@ -111,6 +111,7 @@ const Main = () => {
             />
 
             <SolutionVi
+                title='Решение по теореме Виета'
                 a={a}
                 b={b}
                 c={c}

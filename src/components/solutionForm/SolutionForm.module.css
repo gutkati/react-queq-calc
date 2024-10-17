@@ -22,6 +22,14 @@
 
 }
 
+.title__info {
+    text-align: center;
+    color: #828282;
+    font-weight: inherit;
+    font-size: 18px;
+    margin: 10px 0 0;
+}
+
 .title {
     text-align: center;
     font-family: serif;
@@ -43,4 +51,10 @@
 
 .font__size {
     font-size: 18px;
+}
+
+@media screen and (max-width: 560px) {
+    .title__info {
+        font-size: 16px;
+    }
 }

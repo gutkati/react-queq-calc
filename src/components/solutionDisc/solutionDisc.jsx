@@ -4,7 +4,7 @@ import styles from "../solutionForm/SolutionForm.module.css";
 import Coefficient1 from "../coefficient1/coefficient1";
 import Coefficient2 from "../coefficient2/coefficient2";
 
-const SolutionDisc = ({a, b, c, openSolution}) => {
+const SolutionDisc = ({title, a, b, c, openSolution}) => {
 
     // значение дискриминанта
     let disc = getDiscriminant()
@@ -33,6 +33,7 @@ const SolutionDisc = ({a, b, c, openSolution}) => {
 
     return (
         <SolutionForm
+            title={title}
             a={a}
             b={b}
             c={c}
